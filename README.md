@@ -18,7 +18,11 @@ I have deployed the production build of this app to the AWS ec2 instance on a no
 
 #### `npm start`
 
-It will open the project in the browser with this url - http://localhost:3000.
+It will open the project in the browser in localhost in 3000 port.
+
+## Live Link
+
+http://52.66.91.114:3000/
 
 ## Screenshots
 
