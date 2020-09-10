@@ -32,11 +32,11 @@ class App extends Component {
     return (
       <Container fluid className="p-3 min-vh-100">
         <h1 className="main-header mb-4 text-center">SpaceX Launch Programs</h1>
-        <Row lg={2} md={2} sm={2} xs={1}>
-          <Col lg={2} md={3} sm={4}>
+        <Row className="main-content">
+          <Col>
             <Filters />
           </Col>
-          <Col lg={10} md={9} sm={8}>
+          <Col>
             {isLoading ? (
               <div className="d-flex align-items-center justify-content-center">
                 <Spinner animation="grow" />

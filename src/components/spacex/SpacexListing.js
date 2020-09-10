@@ -9,7 +9,7 @@ const SpacexListing = (props) => {
     return <p className="text-center mt-5">No spacex mission found.</p>;
 
   return (
-    <Row className="list" lg={4} md={3} sm={2} xs={1}>
+    <Row className="list row-eq-height">
       {spacexLists &&
         spacexLists.map((spacex) => {
           return (

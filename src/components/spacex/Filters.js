@@ -113,14 +113,14 @@ class Filters extends Component {
         <div className="section-heading">
           <h5 className="p-2">Filters</h5>
         </div>
-        <div className="launch-year text-center">
+        <div className="launch-year text-center mb-2">
           <span className="text-muted">Launch Year</span>
           <hr className="hr-ruler" />
           <Row lg={2} xs={2}>
             {this.createLaunchFilter()}
           </Row>
         </div>
-        <div className="success-launch text-center">
+        <div className="success-launch text-center  mb-2">
           <span className="text-muted">Successful Launch</span>
           <hr className="hr-ruler" />
           <Row lg={2} xs={2}>
@@ -148,7 +148,7 @@ class Filters extends Component {
             </Col>
           </Row>
         </div>
-        <div className="success-landing text-center">
+        <div className="success-landing text-center mb-4">
           <span className="text-muted">Successful Landing</span>
           <hr className="hr-ruler" />
           <Row lg={2} xs={2}>
@@ -177,6 +177,8 @@ class Filters extends Component {
               </Button>
             </Col>
           </Row>
+        </div>
+        <div className="reset">
           <Row>
             <Col>
               <Button
@@ -184,7 +186,7 @@ class Filters extends Component {
                 size="sm"
                 value="false"
                 onClick={this.resetFilter}
-                className="mt-3"
+                block
               >
                 Reset
               </Button>
