@@ -4,7 +4,7 @@ This is a simple application to browse the Spacex launch missions, built with re
 
 ## Steps To Run The Project
 
-1. First of all you have to install Node.js in your machine.
+1. First of all you have to install Node Js and React Js in your machine.
 
 2. Clone the repository to your local machine.
 
