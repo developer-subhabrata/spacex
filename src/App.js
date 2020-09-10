@@ -1,26 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./index.css";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
+import SpacexListing from "./components/spacex/SpacexListing";
+import Filters from "./components/spacex/Filters";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { listSpacexLaunches } from "./store/actions/spacexActions";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    this.props.listSpacexLaunches();
+  }
+
+  render() {
+    const { spacexLists, isLoading } = this.props;
+    // if (isLoading)
+    //   return (
+    //     <Row>
+    //       <Col>
+    //         <div className="d-flex align-items-center justify-content-center">
+    //           <Spinner animation="grow" />
+    //         </div>
+    //       </Col>
+    //     </Row>
+    //   );
+    return (
+      <Container fluid className="p-3 min-vh-100">
+        <h1 className="main-header mb-4 text-center">SpaceX Launch Programs</h1>
+        <Row lg={2} md={2} sm={2} xs={1}>
+          <Col lg={2} md={3} sm={4}>
+            <Filters />
+          </Col>
+          <Col lg={10} md={9} sm={8}>
+            {isLoading ? (
+              <div className="d-flex align-items-center justify-content-center">
+                <Spinner animation="grow" />
+              </div>
+            ) : (
+              <SpacexListing spacexLists={spacexLists} />
+            )}
+          </Col>
+        </Row>
+
+        <p className="text-center pt-4 pb-2">
+          <strong>Developed by: Subhabrata Khatua</strong>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      </Container>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    spacexLists: state.spacex.spacexLists,
+    isLoading: state.spacex.isLoading,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    listSpacexLaunches: () => dispatch(listSpacexLaunches()),
+  };
+};
+
+export default compose(connect(mapStateToProps, mapDispatchToProps))(App);
